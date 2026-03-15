@@ -7,3 +7,5 @@ This code uses pyserial for communication, you have to provide port name in the 
 Tested on MacOS. On Linux permissions have to be properly set. Windows should work fine too.
 
 The device actually supports more commands that aren't available in the GUI. Look into test and ad5941 files for more information.
+
+I'm planning to add EIS analysis / circuit fitting options in the GUI by using my old project and impedance.py library later... maybe... 
