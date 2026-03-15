@@ -4,3 +4,5 @@ Run app.py to access the GUI for the potentiostat.
 
 This code uses pyserial for communication, you have to provide port name in the GUI to establish connection with the potentiostat.
 Tested on MacOS. On Linux permissions have to be properly set. Windows should work fine too.
+
+The device actually supports more commands that aren't available in the GUI. Look into test and ad5941 files for more information.
