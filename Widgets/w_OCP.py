@@ -134,7 +134,7 @@ class OCPWidget(QWidget):
     def _create_scan_controls(self, parent_layout):
         """Create scan control buttons and add them to parent_layout."""
         layout = QHBoxLayout()
-        self.run_button = QPushButton("Run OCP Scan")
+        self.run_button = QPushButton("Run OCP")
         self.run_button.setStyleSheet("""
             QPushButton {
                 background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,

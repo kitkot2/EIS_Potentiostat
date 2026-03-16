@@ -17,6 +17,11 @@ from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as Navigatio
 INPUT_WIDTH = 100
 QUEUE_POLL_INTERVAL_MS = 100
 
+# TIA Rf values (index 0-7)
+TIA_RF_VALUES = ["200 Ω", "1 kΩ", "5 kΩ", "10 kΩ", "20 kΩ", "40 kΩ", "80 kΩ", "160 kΩ"]
+# PGA Gain values (index 0-4)
+PGA_GAIN_VALUES = ["1x", "1.5x", "2x", "4x", "9x"]
+
 
 class EISWidget(QWidget):
     """Widget for EIS measurements with parameter controls and visualization."""
@@ -155,7 +160,7 @@ class EISWidget(QWidget):
         # TIA Rf selection
         grid.addWidget(QLabel("TIA Rf:"), 3, 0)
         self.tia_rf_combo = QComboBox()
-        self.tia_rf_combo.addItems([str(i) for i in range(8)])
+        self.tia_rf_combo.addItems(TIA_RF_VALUES)
         self.tia_rf_combo.setCurrentIndex(self.tia_rf_index)
         self.tia_rf_combo.setMaximumWidth(INPUT_WIDTH)
         grid.addWidget(self.tia_rf_combo, 3, 1)
@@ -163,7 +168,7 @@ class EISWidget(QWidget):
         # PGA Gain selection
         grid.addWidget(QLabel("PGA Gain:"), 4, 0)
         self.pga_gain_combo = QComboBox()
-        self.pga_gain_combo.addItems([str(i) for i in range(5)])
+        self.pga_gain_combo.addItems(PGA_GAIN_VALUES)
         self.pga_gain_combo.setCurrentIndex(self.pga_gain_index)
         self.pga_gain_combo.setMaximumWidth(INPUT_WIDTH)
         grid.addWidget(self.pga_gain_combo, 4, 1)
@@ -231,7 +236,7 @@ class EISWidget(QWidget):
     def _create_scan_controls(self, parent_layout):
         """Create scan control buttons and add them to parent_layout."""
         layout = QHBoxLayout()
-        self.run_button = QPushButton("Run EIS Scan")
+        self.run_button = QPushButton("Run EIS")
         self.run_button.setStyleSheet("""
             QPushButton {
                 background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
