@@ -847,7 +847,7 @@ class AD5941:
 
         Args:
             we_mv: If given, sets the working electrode voltage (mV) for calibration.
-                Sends a single‑float 'M' command.
+                Sends a single-float 'M' command.
         """
         if we_mv is not None:
             self.write(f'M{we_mv:.0f}')
