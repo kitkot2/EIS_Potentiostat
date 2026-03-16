@@ -1650,7 +1650,6 @@ void ProcessToken(char* token)
     int32_t int3;
     bool success = false;
 
-    // ===== CHECK 1: OCP calibration =====
     if ((sscanf(token, "M%i,%i,%i", &int1, &int2, &int3) == 3))
     {
         WEfrom = static_cast<float>(int1);
@@ -1664,7 +1663,6 @@ void ProcessToken(char* token)
         
         success = true;
     }
-    // ===== CHECK 2: D command (5 parameters) =====
     else
     {
         float t1, t2, t3, t4;
@@ -1690,7 +1688,6 @@ void ProcessToken(char* token)
         }
     }
     
-    // ===== CHECK 3: Memory commands =====
     if (!success)
     {
         if (sscanf(token, "ri80x%lX", &hex1) == 1)
@@ -1780,7 +1777,6 @@ void ProcessToken(char* token)
         }
     }
     
-    // ===== CHECK 4: 2-parameter hex commands =====
     if (!success)
     {
         if (sscanf(token, "%c 0x%lX,0x%lX", &command, &hex1, &hex2) == 3)
@@ -1797,7 +1793,6 @@ void ProcessToken(char* token)
         }
     }
 
-    // ===== CHECK 5: 2-parameter float commands =====
     if (!success)
     {
         if (sscanf(token, "%c %f,%f", &command, &float1, &float2) == 3)
@@ -1812,7 +1807,6 @@ void ProcessToken(char* token)
         }
     }
 
-    // ===== CHECK 6: 1-parameter commands =====
     if (!success)
     {
         if (sscanf(token, "%c %f", &command, &float1) == 2)
@@ -1827,7 +1821,6 @@ void ProcessToken(char* token)
         }
     }
     
-    // ===== CHECK 7: Single character commands =====
     if (!success)
     {
         command = token[0];
